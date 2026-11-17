@@ -1,0 +1,15 @@
+.venv/
+__pycache__/
+*.py[cod]
+.env
+*.db
+node_modules/
+dist/
+.DS_Store
+.idea/
+.vscode/
+data/uploads/
+
+# Trained model artifacts (regenerate via API)
+backend/artifacts/*.joblib
+backend/artifacts/*.json

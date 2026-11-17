@@ -1,0 +1,20 @@
+services:
+  db:
+    image: postgres:16
+    container_name: decisiontwin-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: decisiontwin
+      POSTGRES_USER: decisiontwin
+      POSTGRES_PASSWORD: change_me
+    ports:
+      - "5432:5432"
+    volumes:
+      - decisiontwin_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U decisiontwin -d decisiontwin"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+volumes:
+  decisiontwin_pgdata:
